@@ -13,7 +13,14 @@
 <body>
     <div class="container">
         <a class="login-button">Login with GitHub</a></li>
+        <button id="loginButton">Login</button>
     </div>
+
+    <script type="text/javascript">
+        document.getElementById("loginButton").onclick = function () {
+            location.href = "/.auth/login/github";
+        };
+    </script>
 </body>
 
 </html>

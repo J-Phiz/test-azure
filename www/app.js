@@ -3,8 +3,17 @@ const taskListElement = document.querySelector('#tasksList');
 const empty = document.querySelector('#empty');
 const usernameElement = document.querySelector('#username');
 
+function Get(yourUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",yourUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+
 async function getUser() {
-    // TODO
+    var json_obj = JSON.parse(Get("/.auth/me"));
+    console.log("this is the user name: " + json_obj.clientPrincipal.userDetails);
+    usernameElement.textContent = json_obj.clientPrincipal.userDetails;
 }
 
 async function updateTask() {
